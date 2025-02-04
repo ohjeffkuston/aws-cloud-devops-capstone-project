@@ -1,0 +1,19 @@
+name: Build and Publish to docker Hub 
+
+on:
+  [workflow_dispatch]
+
+jobs:
+  Publish_images:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build ./api/ -t ohjeffkuston/devops-qr-code-backend:latest
+
+    - name: push image to docker hub
+      run: |
+        docker push ohjeffkuston/devops-qr-code-backend:latest
