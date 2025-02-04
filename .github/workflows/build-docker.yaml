@@ -16,4 +16,5 @@ jobs:
 
     - name: push image to docker hub
       run: |
+        docker login -u ohjeffkuston -p ${{ secrets.DOCKER_HUB_TOKEN }}
         docker push ohjeffkuston/devops-qr-code-backend:latest
